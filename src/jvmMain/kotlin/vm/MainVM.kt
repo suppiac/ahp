@@ -13,7 +13,7 @@ class MainVM {
     var lambdaMax by mutableStateOf("null")
     var ci by mutableStateOf("null")
     var cr by mutableStateOf("null")
-    private val ri = arrayOf(0.0, 0.0, 0.58, 0.90, 1.12, 1.24, 1.32, 1.41, 1.45, 1.49, 1.52)
+    private val ri = arrayOf(0.0, 0.0, 0.52, 0.89, 1.12, 1.26, 1.36, 1.41, 1.46, 1.49, 1.52, 1.54, 1.56, 1.58, 1.59)
     private val format = DecimalFormat("#.####")
 
     fun  calculateAHP(str: String) {
