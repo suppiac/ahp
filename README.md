@@ -7,6 +7,11 @@
 3. Koin注入
 4. Jetpack Compose for Desktop
 
+更新：
+2024-09-02：
+1. 升级`JDK`、`kotlin`、`Compose`版本
+2. 更换为`MIT`许可证
+
 ---
 ## 相关页面
 ### 程序主页:
