@@ -10,10 +10,13 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.*
 import org.koin.compose.koinInject
+import ui.ChineseFamily
+import ui.EnglishFamily
 import viewmodel.AppAction
 import viewmodel.AppViewModel
 
@@ -28,7 +31,7 @@ fun App(vm: AppViewModel = koinInject()) {
                 value = uiState.fieldText,
                 onValueChange = { vm.dispatch(AppAction.ChangeFieldText(it)) },
                 textStyle = TextStyle(fontSize = 16.sp),
-                label = { Text("输入矩阵：") },
+                label = { Text(text = "输入矩阵：", fontFamily = ChineseFamily) },
                 placeholder = { Text("e.g.:\n1 1 3\n1 1 3\n1/3 1/3 1") },
                 modifier = Modifier.width(516.dp).height(240.dp).align(alignment = Alignment.CenterHorizontally),
             )
@@ -42,7 +45,7 @@ fun App(vm: AppViewModel = koinInject()) {
                     .align(alignment = Alignment.CenterHorizontally),
                 onClick = { vm.dispatch(AppAction.Calculate) }
             ) {
-                Text("计算")
+                Text("计算", fontFamily = ChineseFamily)
             }
             
             Divider(modifier = Modifier.width(516.dp).height(1.dp).align(alignment = Alignment.CenterHorizontally))
@@ -50,6 +53,7 @@ fun App(vm: AppViewModel = koinInject()) {
             // 矩阵权重
             Text(
                 text = "权重矩阵W:${uiState.w}",
+                fontFamily = ChineseFamily,
                 modifier = Modifier
                     .padding(vertical = 15.dp)
                     .width(516.dp)
@@ -63,9 +67,9 @@ fun App(vm: AppViewModel = koinInject()) {
                     .width(516.dp)
                     .align(alignment = Alignment.CenterHorizontally)
             ) {
-                Text(text = "λm:${uiState.lambdaMax}", modifier = Modifier.width(172.dp))
-                Text(text = "CI:${uiState.ci}", modifier = Modifier.width(172.dp))
-                Text(text = "CR:${uiState.cr}", modifier = Modifier.width(172.dp))
+                Text(text = "λm:${uiState.lambdaMax}", fontFamily = EnglishFamily, modifier = Modifier.width(172.dp))
+                Text(text = "CI:${uiState.ci}", fontFamily = EnglishFamily, modifier = Modifier.width(172.dp))
+                Text(text = "CR:${uiState.cr}", fontFamily = EnglishFamily, modifier = Modifier.width(172.dp))
             }
         }
     }
@@ -80,6 +84,8 @@ fun App(vm: AppViewModel = koinInject()) {
         Column(modifier = Modifier.width(270.dp).height(180.dp)) {
             Text(
                 text = "输入数据不是矩阵！",
+                fontFamily = ChineseFamily,
+                textAlign = TextAlign.Left,
                 modifier = Modifier
                     .width(210.dp)
                     .height(90.dp)
@@ -95,7 +101,7 @@ fun App(vm: AppViewModel = koinInject()) {
                     onClick = { vm.dispatch(AppAction.SetErrorValue(false)) },
                     modifier = Modifier.align(alignment = Alignment.BottomEnd)
                 ) {
-                    Text("确认")
+                    Text("确认", fontFamily = ChineseFamily)
                 }
             }
         }
